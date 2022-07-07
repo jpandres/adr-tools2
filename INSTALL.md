@@ -1,16 +1,6 @@
 Installation
 ============
 
-From a Release Package (Linux, MacOS X)
----------------------------------------
-
-You can install a released package:
-
-1. Download a zip or tar.gz package from the [releases page](https://github.com/npryce/adr-tools/releases)
-2. Unzip / untar the package
-3. Add the 'src/' subdirectory to your PATH
-
-
 From Git (Linux, MacOS X)
 -------------------------
 
