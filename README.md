@@ -1,11 +1,12 @@
-ADR Tools
-=========
+# ADR Tools
+<p><a href=""><img src="https://img.shields.io/badge/ADRs-10-ff69b4" alt="Number of ADRs in this repo" /></a></p>
+
 
 A command-line tool for working with a log of [Architecture Decision Records][ADRs] (ADRs).
 
 
-Quick Start
------------
+## Quick Start
+
 
 [Install ADR Tools](INSTALL.md).
 
