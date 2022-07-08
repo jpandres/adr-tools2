@@ -55,4 +55,6 @@ See the [tests](tests/) for detailed examples.
 
 The decisions for this tool are recorded as [architecture decision records in the project repository](doc/adr/).
 
+You can see them in HTML format at: https://jpandres.github.io/adr-tools2/ (generated with [adr-viewer](https://github.com/mrwilson/adr-viewer))
+
 [ADRs]: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
