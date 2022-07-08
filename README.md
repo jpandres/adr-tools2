@@ -47,7 +47,7 @@ when you initialise the ADR log.
 
         export ADR_TEMPLATE=<path to file>
 
-4. For further information, use the built in help:
+4. For further information, use the built-in help:
 
         adr help
 
