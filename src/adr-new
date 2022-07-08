@@ -104,6 +104,19 @@ slug=$(echo -n $title | tr -Ccs [:alnum:] - | tr [:upper:] [:lower:] | sed -e 's
 dstfile=$dstdir/$newid-$slug.md
 date=${ADR_DATE:-$(date +%Y-%m-%d)}
 
+readmefile=README.md
+
+if [ -f $readmefile ]; then
+  if grep -q "<img src=\"https://img.shields.io/badge/ADRs-" $readmefile
+  then
+      sed -i .back -r "s/badge\/ADRs-[0-9]+-ff/badge\/ADRs-$newnum-ff/g" $readmefile
+  else
+      sed -r -i back -e '/^# [a-zA-Z0-9]+/a\'$'\n'"<p><a href=\"\"><img src=\"https://img.shields.io/badge/ADRs-$newnum-ff69b4\" alt=\"Number of ADRs in this repo\" /></a></p>" README.md
+  fi
+else
+    echo "$readmefile does not exist."
+fi
+
 mkdir -p $dstdir
 cat $template | sed \
     -e "s|NUMBER|$newnum|" \
