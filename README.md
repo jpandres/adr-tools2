@@ -1,4 +1,4 @@
-# ADR Tools
+# ADR Tools 2
 <p><a href=""><img src="https://img.shields.io/badge/ADRs-10-ff69b4" alt="Number of ADRs in this repo" /></a></p>
 
 
@@ -8,7 +8,7 @@ A command-line tool for working with a log of [Architecture Decision Records][AD
 ## Quick Start
 
 
-[Install ADR Tools](INSTALL.md).
+[Install ADR Tools 2](INSTALL.md).
 
 Use the `adr` command to manage ADRs.  Try running `adr help`.
 
