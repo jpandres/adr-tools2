@@ -1,9 +1,11 @@
-touch README.md
 adr new Something About Node.JS
+README.md does not exist.
 doc/adr/0001-something-about-node-js.md
 adr new Slash/Slash/Slash/
+README.md does not exist.
 doc/adr/0002-slash-slash-slash.md
 adr new -- "-Bar-"
+README.md does not exist.
 doc/adr/0003-bar.md
 ls doc/adr
 0001-something-about-node-js.md

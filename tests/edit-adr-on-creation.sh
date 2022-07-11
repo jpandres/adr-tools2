@@ -1,4 +1,3 @@
-touch README.md
 export EDITOR
 export VISUAL
 

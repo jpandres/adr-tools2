@@ -1,9 +1,11 @@
-touch README.md
 adr new First Record
+README.md does not exist.
 doc/adr/0001-first-record.md
 adr new Second Record
+README.md does not exist.
 doc/adr/0002-second-record.md
 adr new Third Record
+README.md does not exist.
 doc/adr/0003-third-record.md
 adr link 3 Amends 1 "Amended by"
 adr link 3 Clarifies 2 "Clarified by"

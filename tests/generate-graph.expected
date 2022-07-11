@@ -1,13 +1,17 @@
-touch README.md
 adr init
+README.md does not exist.
 doc/adr/0001-record-architecture-decisions.md
 adr new An idea that seems good at the time
+README.md does not exist.
 doc/adr/0002-an-idea-that-seems-good-at-the-time.md
 adr new -s 2 A better idea
+README.md does not exist.
 doc/adr/0003-a-better-idea.md
 adr new This will work
+README.md does not exist.
 doc/adr/0004-this-will-work.md
 adr new -s 3 The end
+README.md does not exist.
 doc/adr/0005-the-end.md
 # with default root and extension in links
 adr generate graph

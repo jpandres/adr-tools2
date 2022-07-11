@@ -1,21 +1,29 @@
-touch README.md
 adr new First Decision
+README.md does not exist.
 doc/adr/0001-first-decision.md
 adr new Second Decision
+README.md does not exist.
 doc/adr/0002-second-decision.md
 adr new Third Decision
+README.md does not exist.
 doc/adr/0003-third-decision.md
 adr new Fourth Decision
+README.md does not exist.
 doc/adr/0004-fourth-decision.md
 adr new Fifth Decision
+README.md does not exist.
 doc/adr/0005-fifth-decision.md
 adr new Sixth Decision
+README.md does not exist.
 doc/adr/0006-sixth-decision.md
 adr new Seventh Decision
+README.md does not exist.
 doc/adr/0007-seventh-decision.md
 adr new Eighth Decision
+README.md does not exist.
 doc/adr/0008-eighth-decision.md
 adr new Ninth Decision
+README.md does not exist.
 doc/adr/0009-ninth-decision.md
 ls doc/adr
 0001-first-decision.md

@@ -1,7 +1,8 @@
-touch README.md
 adr new First Record
+README.md does not exist.
 doc/adr/0001-first-record.md
 adr new -s 1 Second Record
+README.md does not exist.
 doc/adr/0002-second-record.md
 head -10 doc/adr/0001-first-record.md
 # 1. First Record

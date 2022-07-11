@@ -1,4 +1,3 @@
-touch README.md
 adr init
 adr new An idea that seems good at the time
 adr new -s 2 A better idea
