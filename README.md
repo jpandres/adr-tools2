@@ -1,5 +1,5 @@
 # ADR Tools 2
-<a href=""><img src="https://img.shields.io/badge/ADRs-11-ff69b4" alt="Number of ADRs in this repo" /></a> 
+<a href="https://jpandres.github.io/adr-tools2/"><img src="https://img.shields.io/badge/ADRs-11-ff69b4" alt="Number of ADRs in this repo" /></a> 
 ![build](https://github.com/jpandres/adr-tools2/actions/workflows/main.yml/badge.svg)
 
 
