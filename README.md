@@ -1,6 +1,6 @@
 # ADR Tools 2
 <p><a href=""><img src="https://img.shields.io/badge/ADRs-10-ff69b4" alt="Number of ADRs in this repo" /></a></p>
-![example workflow](https://github.com/jpandres/adr-tools2/actions/workflows/build/badge.svg)
+![example workflow](https://github.com/jpandres/adr-tools2/actions/workflows/main/badge.svg)
 
 A command-line tool for working with a log of [Architecture Decision Records][ADRs] (ADRs).
 
