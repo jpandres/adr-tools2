@@ -1,3 +1,4 @@
+touch README.md
 adr new First Record
 adr new Second Record
 adr new -l "1:Amends:Amended by" -l "2:Clarifies:Clarified by" Third Record

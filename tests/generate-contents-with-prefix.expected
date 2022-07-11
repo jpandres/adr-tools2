@@ -1,3 +1,4 @@
+touch README.md
 adr new First Decision
 doc/adr/0001-first-decision.md
 adr new Second Decision

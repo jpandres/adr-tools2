@@ -1,0 +1,13 @@
+mkdir dir\ with\ space
+cd dir\ with\ space
+adr init alt-dir-with-space
+README.md does not exist.
+alt-dir-with-space/0001-record-architecture-decisions.md
+
+ls .
+alt-dir-with-space
+ls alt-dir-with-space
+0001-record-architecture-decisions.md
+
+adr list
+alt-dir-with-space/0001-record-architecture-decisions.md

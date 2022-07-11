@@ -1,3 +1,4 @@
+touch README.md
 adr list
 The doc/adr directory does not exist
 adr new first

@@ -1,3 +1,4 @@
+touch README.md
 adr new First Record
 adr new Second Record
 adr new Third Record

@@ -1,3 +1,4 @@
+touch README.md
 adr list
 adr new first
 adr list

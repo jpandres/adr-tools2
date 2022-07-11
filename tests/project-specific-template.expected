@@ -1,4 +1,5 @@
 adr init adrs
+README.md does not exist.
 adrs/0001-record-architecture-decisions.md
 mkdir -p adrs/templates
 cat > adrs/templates/template.md <<EOF
@@ -18,8 +19,10 @@ Date: DATE
 
 EOF
 adr new Aaa Bbb
+README.md does not exist.
 adrs/0002-aaa-bbb.md
 adr new Ccc Ddd
+README.md does not exist.
 adrs/0003-ccc-ddd.md
 cat adrs/0002-aaa-bbb.md
 # Aaa Bbb

@@ -1,3 +1,4 @@
+touch README.md
 adr new Something About Node.JS
 doc/adr/0001-something-about-node-js.md
 adr new Slash/Slash/Slash/

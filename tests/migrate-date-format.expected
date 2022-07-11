@@ -1,11 +1,14 @@
 adr init
+README.md does not exist.
 doc/adr/0001-record-architecture-decisions.md
 (
 	ADR_DATE=12/01/1992
 	adr new With Old Date Format
 )
+README.md does not exist.
 doc/adr/0002-with-old-date-format.md
 adr new With Current Date Format
+README.md does not exist.
 doc/adr/0003-with-current-date-format.md
 grep Date: doc/adr/*
 doc/adr/0001-record-architecture-decisions.md:Date: 1992-01-12

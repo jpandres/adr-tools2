@@ -1,6 +1,8 @@
 adr init alternative-dir
+README.md does not exist.
 alternative-dir/0001-record-architecture-decisions.md
 adr new Example ADR
+README.md does not exist.
 alternative-dir/0002-example-adr.md
 
 ls .

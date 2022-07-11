@@ -1,10 +1,13 @@
 adr init architecture-log
+README.md does not exist.
 architecture-log/0001-record-architecture-decisions.md
 adr new First Record
+README.md does not exist.
 architecture-log/0002-first-record.md
 mkdir subdir
 cd subdir
 adr new Second Record
+README.md does not exist.
 ../architecture-log/0003-second-record.md
 adr list
 ../architecture-log/0001-record-architecture-decisions.md
