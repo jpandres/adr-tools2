@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+        <title>ADR Viewer - adr-tools2</title>
+
+        <style type="text/css">
+            body {
+                display: grid;
+                width: auto;
+                height: auto;
+                align-items: center;
+                justify-items: center;
+                grid-template-rows: 2fr minmax(80%, auto) 2fr;
+            }
+
+            @media only screen and (min-width: 1025px) {
+                body {
+                    grid-template-columns: 1fr 3fr 1fr;
+                }
+
+                header, .panel-group, footer {
+                    grid-column: 2;
+                }
+            }
+
+            .panel-group {
+                width: 100%
+            }
+
+            .panel-heading.adr-accepted {
+                background-color: lightgreen;
+            }
+
+            .panel-heading.adr-superseded {
+                background-color: lightgrey;
+            }
+
+            .panel-heading.adr-amended {
+                background-color: yellow;
+            }
+
+            .panel-heading.adr-unknown {
+                background-color: white;
+            }
+
+            .panel-heading.adr-pending {
+                background-color: lightblue;
+            }
+
+            .adr-superseded > .panel-title > a {
+                text-decoration: line-through;
+            }
+
+            .adr-icon {
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>ADR Viewer - adr-tools2</h1>
+        </header>
+        <div class="panel-group">
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse0">1. Record architecture decisions</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse0" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>1. Record architecture decisions</h1>
+<p>Date: 2016-02-12</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p>We need to record the architectural decisions made on this project.</p>
+<h2>Decision</h2>
+<p>We will use Architecture Decision Records, as described by Michael Nygard in this article: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions</p>
+<h2>Consequences</h2>
+<p>See Michael Nygard's article, linked above.</p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">2. Implement as shell scripts</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>2. Implement as shell scripts</h1>
+<p>Date: 2016-02-12</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p>ADRs are plain text files stored in a subdirectory of the project.</p>
+<p>The tool needs to create new files and apply small edits to
+the Status section of existing files.</p>
+<h2>Decision</h2>
+<p>The tool is implemented as shell scripts that use standard Unix
+tools -- grep, sed, awk, etc.</p>
+<h2>Consequences</h2>
+<p>The tool won't support Windows. Being plain text files, ADRs can
+be created by hand and edited in any text editor.  This tool just
+makes the process more convenient.</p>
+<p>Development will have to cope with differences between Unix
+variants, particularly Linux and MacOS X.</p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse2">3. Single command with subcommands</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>3. Single command with subcommands</h1>
+<p>Date: 2016-02-12</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p>The tool provides a number of related commands to create
+and manipulate architecture decision records.</p>
+<p>How can the user find out about the commands that are available?</p>
+<h2>Decision</h2>
+<p>The tool defines a single command, called <code>adr</code>.</p>
+<p>The first argument to <code>adr</code> (the subcommand) specifies the
+action to perform.  Further arguments are interpreted by the
+subcommand.</p>
+<p>Running <code>adr</code> without any arguments lists the available
+subcommands.</p>
+<p>Subcommands are implemented as scripts in the same
+directory as the <code>adr</code> script.  E.g. the subcommand <code>new</code> is
+implemented as the script <code>adr-new</code>, the subcommand <code>help</code>
+as the script <code>adr-help</code> and so on.</p>
+<p>Helper scripts that are part of the implementation but not
+subcommands follow a different naming convention, so that
+subcommands can be listed by filtering and transforming script
+file names.</p>
+<h2>Consequences</h2>
+<p>Users can more easily explore the capabilities of the tool.</p>
+<p>Users are already used to this style of command-line tool.  For
+example, Git works this way.</p>
+<p>Each subcommand can be implemented in the most appropriate
+language.</p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse3">4. Markdown format</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>4. Markdown format</h1>
+<p>Date: 2016-02-12</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p>The decision records must be stored in a plain text format:</p>
+<ul>
+<li><p>This works well with version control systems.</p>
+</li>
+<li><p>It allows the tool to modify the status of records and insert
+hyperlinks when one decision supersedes another.</p>
+</li>
+<li><p>Decisions can be read in the terminal, IDE, version control
+browser, etc.</p>
+</li>
+</ul>
+<p>People will want to use some formatting: lists, code examples,
+and so on.</p>
+<p>People will want to view the decision records in a more readable
+format than plain text, and maybe print them out.</p>
+<h2>Decision</h2>
+<p>Record architecture decisions in <a href="https://daringfireball.net/projects/markdown/">Markdown format</a>.</p>
+<h2>Consequences</h2>
+<p>Decisions can be read in the terminal.</p>
+<p>Decisions will be formatted nicely and hyperlinked by the
+browsers of project hosting sites like GitHub and Bitbucket.</p>
+<p>Tools like <a href="http://pandoc.org/">Pandoc</a> can be used to convert
+the decision records into HTML or PDF.</p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-amended">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse4">5. Help comments</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-arrow-down"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>5. Help comments</h1>
+<p>Date: 2016-02-13</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<p>Amended by <a href="0009-help-scripts.md">9. Help scripts</a></p>
+<h2>Context</h2>
+<p>The tool will have a <code>help</code> subcommand to provide documentation
+for users.</p>
+<p>It's nice to have usage documentation in the script files
+themselves, in comments.  When reading the code, that's the first
+place to look for information about how to run a script.</p>
+<h2>Decision</h2>
+<p>Write usage documentation in comments in the source file.</p>
+<p>Distinguish between documentation comments and normal comments.
+Documentation comments have two hash characters at the start of
+the line.</p>
+<p>The <code>adr help</code> command can parse comments out from the script
+using the standard Unix tools <code>grep</code> and <code>cut</code>.</p>
+<h2>Consequences</h2>
+<p>No need to maintain help text in a separate file.</p>
+<p>Help text can easily be kept up to date as the script is edited.</p>
+<p>There's no automated check that the help text is up to date.  The
+tests do not work well as documentation for users, and the help
+text is not easily cross-checked against the code.</p>
+<p>This won't work if any subcommands are not implemented as scripts
+that use '#' as a comment character.</p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse5">6. Packaging and distribution in other version control repositories</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>6. Packaging and distribution in other version control repositories</h1>
+<p>Date: 2016-02-16</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p>Users want to install adr-tools with their preferred package
+manager.  For example, Ubuntu users use <code>apt</code>, RedHat users use
+<code>yum</code> and Mac OS X users use <a href="http://brew.sh">Homebrew</a>.</p>
+<p>The developers of <code>adr-tools</code> don't know how, nor have permissions,
+to use all these packaging and distribution systems. Therefore packaging
+and distribution must be done by &quot;downstream&quot; parties.</p>
+<p>The developers of the tool should not favour any one particular
+packaging and distribution solution.</p>
+<h2>Decision</h2>
+<p>The <code>adr-tools</code> project will not contain any packaging or
+distribution scripts and config.</p>
+<p>Packaging and distribution will be managed by other projects in
+separate version control repositories.</p>
+<h2>Consequences</h2>
+<p>The git repo of this project will be simpler.</p>
+<p>Eventually, users will not have to use Git to get the software.</p>
+<p>We will have to tag releases in the <code>adr-tools</code> repository so that
+packaging projects know what can be published and how it should be
+identified.</p>
+<p>We will document how users can install the software in this
+project's README file.</p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse6">7. Invoke adr-config executable to get configuration</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>7. Invoke adr-config executable to get configuration</h1>
+<p>Date: 2016-12-17</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p>Packagers (e.g. Homebrew developers) want to configure adr-tools to match the conventions of their installation.</p>
+<p>Currently, this is done by sourcing a file <code>config.sh</code>, which should sit beside the <code>adr</code> executable.</p>
+<p>This name is too common.</p>
+<p>The <code>config.sh</code> file is not executable, and so doesn't belong in a bin directory.</p>
+<h2>Decision</h2>
+<p>Replace <code>config.sh</code> with an executable, named <code>adr-config</code> that outputs configuration.</p>
+<p>Each script in ADR Tools will eval the output of <code>adr-config</code> to configure itself.</p>
+<h2>Consequences</h2>
+<p>Configuration within ADR Tools is a little more complicated.</p>
+<p>Packagers can write their own implementation of <code>adr-config</code> that outputs configuration that matches the platform's installation conventions, and deploy it next to the <code>adr</code> script.</p>
+<p>To make development easier, the implementation of <code>adr-config</code> in the project's src/ directory will output configuration that lets the tool to run from the src/ directory without any installation step. (Packagers should not include this script in a deployable package.)</p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse7">8. Use ISO 8601 Format for Dates</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse7" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>8. Use ISO 8601 Format for Dates</h1>
+<p>Date: 2017-02-21</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p><code>adr-tools</code> seeks to communicate the history of architectural decisions of a
+project.  An important component of the history is the time at which a decision
+was made.</p>
+<p>To communicate effectively, <code>adr-tools</code> should present information as
+unambiguously as possible.  That means that culture-neutral data formats should
+be preferred over culture-specific formats.</p>
+<p>Existing <code>adr-tools</code> deployments format  dates as <code>dd/mm/yyyy</code> by default.  That
+formatting is common formatting in the United Kingdom (where the <code>adr-tools</code>
+project was originally written), but is easily confused with the <code>mm/dd/yyyy</code>
+format preferred in the United States.</p>
+<p>The default date format may be overridden by setting <code>ADR_DATE</code> in <code>config.sh</code>.</p>
+<h2>Decision</h2>
+<p><code>adr-tools</code> will use the ISO 8601 format for dates:  <code>yyyy-mm-dd</code></p>
+<h2>Consequences</h2>
+<p>Dates are displayed in a standard, culture-neutral format.</p>
+<p>The UK-style and ISO 8601 formats can be distinguished by their separator
+character.  The UK-style dates used a slash (<code>/</code>), while the ISO dates use a
+hyphen (<code>-</code>).</p>
+<p>Prior to this decision, <code>adr-tools</code> was deployed using the UK format for dates.
+After adopting the ISO 8601 format, existing deployments of <code>adr-tools</code> must do
+one of the following:</p>
+<ul>
+<li>Accept mixed formatting of dates within their documentation library.</li>
+<li>Update existing documents to use ISO 8601 dates by running <code>adr upgrade-repository</code></li>
+</ul>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse8">9. Help scripts</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse8" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>9. Help scripts</h1>
+<p>Date: 2018-06-26</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<p>Amends <a href="0005-help-comments.md">5. Help comments</a></p>
+<h2>Context</h2>
+<p>Currently help text is generated by extracting specially formatted comments from the top of the command script.</p>
+<p>This makes it easy for developers of the tool:  documentation and code is all in one place.</p>
+<p>But, it means that help text cannot include calculated values, such as the location of files.</p>
+<h2>Decision</h2>
+<p>Where necessary, help text can be generated by a script.</p>
+<p>The script will be called <em>adr_help</em>&lt;command&gt;_&lt;subcommand&gt;</p>
+<h2>Consequences</h2>
+<p>Help scripts can include helper scripts to locate files, giving more accurate instructions to the user that reflect how the tool is deployed in their environment.</p>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse9">10. Adds ADRs count badge in README.md</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse9" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>10. Adds ADRs count badge in README.md</h1>
+<p>Date: 2022-07-08</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p>To make it easier once you get to a repo to know how many ADRs there are</p>
+<h2>Decision</h2>
+<p>The new command have been adapted to add a ADRs count badge in the README.md file (it it exists) or
+increase the count if the badge is already there.</p>
+<h2>Consequences</h2>
+<ul>
+<li>The target project's README.md will be augmented with some extra functionality</li>
+</ul>
+</div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading adr-accepted">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse10">11. Use github actions to run tests</a>
+
+                        
+                        <i class="adr-icon fas fa-fw fa-check"></i>
+                        
+
+                    </h4>
+                </div>
+                <div id="collapse10" class="panel-collapse collapse">
+                    <div class="panel-body"><h1>11. Use github actions to run tests</h1>
+<p>Date: 2022-07-11</p>
+<h2>Status</h2>
+<p>Accepted</p>
+<h2>Context</h2>
+<p>The tests were failing, once they got fixed it made sense to have Continous integration.</p>
+<h2>Decision</h2>
+<p>Use github actions to run the tests on every commit and add a badge in the README.md</p>
+<h2>Consequences</h2>
+<p>Users will know if the tool is working or not in every push and will be able to tell also with the badge.</p>
+</div>
+                </div>
+            </div>
+            
+        </div>
+        <footer>
+            Generated with <3 using ADR Viewer
+        </footer>
+    </body>
+</html>
